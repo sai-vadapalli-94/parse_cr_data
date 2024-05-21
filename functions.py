@@ -176,6 +176,23 @@ def unpackAndDumpData(data: dict) -> None:
                 clientContextID,
                 fileName="processedCRFiles/dataExtracts/dataExtractOnlyTimeouts.json"
             )
+        
+        if state == "closed":
+            # printQeurySpecs(statement, state, scanConsistency, node, elapsedTime, resultCount, phaseTimes, requestSize, userAgent)
+            writeToFile(
+                statement,
+                state,
+                scanConsistency,
+                node,
+                elapsedTime,
+                resultCount,
+                resultSize,
+                phaseTimes,
+                requestSize,
+                userAgent,
+                clientContextID,
+                fileName="processedCRFiles/dataExtracts/dataExtractOnlyClosed.json"
+            )
 
         # write to a file for queries that were in fatal state
         if state == "fatal":
